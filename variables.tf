@@ -1,19 +1,22 @@
-variable "aws_region" {
+variable "location" {}
+
+variable "prefix" {
   type    = string
-  default = "us-west-1"
+  default = "my"
 }
 
-variable "db_table_name" {
-  type    = string
-  default = "terraform-learn"
+variable "tags" {
+  type = map
+
+  default = {
+    Environment = "Terraform GS"
+    Dept        = "Engineering"
+  }
 }
 
-variable "db_read_capacity" {
-  type    = number
-  default = 1
-}
-
-variable "db_write_capacity" {
-  type    = number
-  default = 1
+variable "sku" {
+  default = {
+    westus2 = "16.04-LTS"
+    eastus  = "18.04-LTS"
+  }
 }
